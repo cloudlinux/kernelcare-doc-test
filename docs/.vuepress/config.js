@@ -19,12 +19,12 @@ module.exports = {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
-      description: "Kernelcare documentation"
+      description: "KernelCare documentation"
     },
-    "/ru/": {
-      lang: "ru",
-      title: "Документация",
-      description: "Документация Kernelcare"
+    "/jp/": {
+      lang: "jp",
+      title: "ドキュメンテーション",
+      description: "KernelCare ドキュメンテーション"
     }
   },
   theme: "cloudlinux",
@@ -115,42 +115,41 @@ module.exports = {
           }
         ]
       },
-      "/ru/": {
-        selectText: "Выберите язык",
-        label: "Русский",
-        editLinkText: "Отредактировать на GitHub",
+      "/jp/": {
+        selectText: "ランゲージ",
+        label: "日本人",
+        editLinkText: "エディット",
         serviceWorker: {
           updatePopup: {
-            message: "Новый контент доступен",
-            buttonText: "Обновить"
+            message: "New content is available",
+            buttonText: "Refresh"
           }
         },
         algolia: {},
         sidebar: [
           {
-            title: "Содержание",
+            title: "コンテンツ",
             collapsable: false,
             children: [
-              "/ru/installation/",
-              "/ru/settings/",
-              "/ru/command_line/",
-              "/ru/config_options/",
-              "/ru/disabling_some_patches/",
-              "/ru/delayed_feed/",
-              "/ru/extra_patchset/",
-              "/ru/sticky_patches/",
-              "/ru/nagios_plugin/",
-              "/ru/zabbix_template/",
-              "/ru/upgrade/",
-              "/ru/uninstall/",
-              "/ru/technology/",
-              "/ru/AWS_deployment_guide/",
-              "/ru/reseller_partner_ui/",
-              "/ru/kernelcare_enterprise/",
-              "/ru/kcare-nexpose/",
-              "/ru/kernelcare_whmcs_plugin/",
-              "/ru/proxy_settings/",
-              "/ru/eol_ubuntu_lts_kernels_support/"
+              "/jp/installation/",
+              "/jp/settings/",
+              "/jp/command_line/",
+              "/jp/config_options/",
+              "/jp/disabling_some_patches/",
+              "/jp/delayed_feed/",
+              "/jp/extra_patchset/",
+              "/jp/sticky_patches/",
+              "/jp/nagios_plugin/",
+              "/jp/zabbix_template/",
+              "/jp/upgrade/",
+              "/jp/uninstall/",
+              "/jp/technology/",
+              "/jp/AWS_deployment_guide/",
+              "/jp/kernelcare_enterprise/",
+              "/jp/kcare-nexpose/",
+              "/jp/kernelcare_whmcs_plugin/",
+              "/jp/proxy_settings/",
+              "/jp/eol_ubuntu_lts_kernels_support/"
             ]
           }
         ]
