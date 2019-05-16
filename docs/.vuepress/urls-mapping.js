@@ -1,5 +1,5 @@
 module.exports = {
-  "/ru/":"/ru/installation/",
+  "/jp/":"/jp/installation/",
   "/installation.htm/": "/installation/",
   "/installation.htm": "/installation/",
   "/index.html?installation.htm": "/installation/",
