@@ -15,6 +15,7 @@ module.exports = {
       }
     }
   },
+  base: "/",
   locales: {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
@@ -52,12 +53,16 @@ module.exports = {
     cloudlinuxSite: "https://cloudlinux.com",
     locales: {
       "/": {
+        // text for the language dropdown title
+        title: "Language",
         // text for the language dropdown
-        selectText: "Languages",
+        selectText: "En",
         // label for this locale in the language dropdown
         label: "English",
         // text for the edit-on-github link
         editLinkText: "Edit this page",
+        tryFree: "Try Free",
+        search: "Search",
         // config for Service Worker
         serviceWorker: {
           updatePopup: {
@@ -69,7 +74,7 @@ module.exports = {
           apiKey: "9e2f9685334c9bab4a296dce7b5b77cd",
           indexName: "kernelcare"
         },
-
+        stayInTouch: "Stay in touch",
         bottomLinks: [
           {
             text: "How to",
@@ -116,16 +121,35 @@ module.exports = {
         ]
       },
       "/jp/": {
-        selectText: "ランゲージ",
+        title: "ランゲージ",
+        selectText: "日本人",
         label: "日本人",
-        editLinkText: "エディット",
+        editLinkText: "編集",
+        tryFree: "無料で試す",
+        search: "検索する",
         serviceWorker: {
           updatePopup: {
-            message: "New content is available",
-            buttonText: "Refresh"
+            message: "新しいコンテンツが利用可能です",
+            buttonText: "最新の情報に更新"
           }
         },
         algolia: {},
+        stayInTouch: "連絡を取り合う",
+        bottomLinks: [
+            {
+                text: "ヘルプと使い方",
+                url: "https://www.kernelcare.com/install-kernelcare/"
+            },
+            {
+                text: "よく寄せられる質問",
+                url: "https://www.kernelcare.com/faq/"
+            },
+            {
+                text: "サポート",
+                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+            },
+            { text: "ブログ", url: "https://www.kernelcare.com/blog/" }
+        ],
         sidebar: [
           {
             title: "コンテンツ",
