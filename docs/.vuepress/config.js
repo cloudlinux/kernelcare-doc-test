@@ -8,13 +8,23 @@ module.exports = {
   ga: "UA-12711721-6", // google analitics
   fbPixelID: "645174729237247", // facebook pixel
 
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js'
+      }
+    }
+  },
   locales: {
-    // The key is the path for the locale to be nested under.
-    // As a special case, the default locale can use '/' as its path.
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
       description: "Kernelcare documentation"
+    },
+    "/ru/": {
+      lang: "ru",
+      title: "Документация",
+      description: "Документация Kernelcare"
     }
   },
   theme: "cloudlinux",
@@ -104,47 +114,47 @@ module.exports = {
             ]
           }
         ]
+      },
+      "/ru/": {
+        selectText: "Выберите язык",
+        label: "Русский",
+        editLinkText: "Отредактировать на GitHub",
+        serviceWorker: {
+          updatePopup: {
+            message: "Новый контент доступен",
+            buttonText: "Обновить"
+          }
+        },
+        algolia: {},
+        sidebar: [
+          {
+            title: "Содержание",
+            collapsable: false,
+            children: [
+              "/ru/installation/",
+              "/ru/settings/",
+              "/ru/command_line/",
+              "/ru/config_options/",
+              "/ru/disabling_some_patches/",
+              "/ru/delayed_feed/",
+              "/ru/extra_patchset/",
+              "/ru/sticky_patches/",
+              "/ru/nagios_plugin/",
+              "/ru/zabbix_template/",
+              "/ru/upgrade/",
+              "/ru/uninstall/",
+              "/ru/technology/",
+              "/ru/AWS_deployment_guide/",
+              "/ru/reseller_partner_ui/",
+              "/ru/kernelcare_enterprise/",
+              "/ru/kcare-nexpose/",
+              "/ru/kernelcare_whmcs_plugin/",
+              "/ru/proxy_settings/",
+              "/ru/eol_ubuntu_lts_kernels_support/"
+            ]
+          }
+        ]
       }
-      // "/ru/": {
-      //   selectText: "Выберите язык",
-      //   label: "Русский",
-      //   editLinkText: "Отредактировать на GitHub",
-      //   serviceWorker: {
-      //     updatePopup: {
-      //       message: "Новый контент доступен",
-      //       buttonText: "Обновить"
-      //     }
-      //   },
-      //   algolia: {},
-      //   sidebar: [
-      //     {
-      //       title: "Содержание",
-      //       collapsable: false,
-      //       children: [
-      //         "/ru/installation/",
-      //         "/ru/settings/",
-      //         "/ru/command_line/",
-      //         "/ru/config_options/",
-      //         "/ru/disabling_some_patches/",
-      //         "/ru/delayed_feed/",
-      //         "/ru/extra_patchset/",
-      //         "/ru/sticky_patches/",
-      //         "/ru/nagios_plugin/",
-      //         "/ru/zabbix_template/",
-      //         "/ru/upgrade/",
-      //         "/ru/uninstall/",
-      //         "/ru/technology/",
-      //         "/ru/AWS_deployment_guide/",
-      //         "/ru/reseller_partner_ui/",
-      //         "/ru/kernelcare_enterprise/",
-      //         "/ru/kcare-nexpose/",
-      //         "/ru/kernelcare_whmcs_plugin/",
-      //         "/ru/proxy_settings/",
-      //         "/ru/eol_ubuntu_lts_kernels_support/"
-      //       ]
-      //     }
-      //   ]
-      // }
     }
   }
 };
