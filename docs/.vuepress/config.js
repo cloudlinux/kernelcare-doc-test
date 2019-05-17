@@ -121,9 +121,9 @@ module.exports = {
         ]
       },
       "/jp/": {
-        title: "ランゲージ",
-        selectText: "日本人",
-        label: "日本人",
+        title: "言語",
+        selectText: "日本語",
+        label: "日本語",
         editLinkText: "編集",
         tryFree: "無料で試す",
         search: "検索する",
