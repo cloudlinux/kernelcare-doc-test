@@ -1,13 +1,13 @@
 # アップグレード
 
 
-:::注記
+::: tip 注記
 ‘無料パッチセット’ から完全機能の有料のKernelCareライセンスにアップグレードする方法
 :::
 
-無償のSymlink Protectionパッチセットをインストールし、 [KernelCare](https://www.kernelcare.com/) が提供するリブート無しの包括的なカーネルセキュリティアップデートを利用したいのであれば、以下でそれを行う方法を説明します。
+無償のSymlink Protection(シンボリックリンク保護)パッチセットをインストールし、 [KernelCare](https://www.kernelcare.com/) が提供するリブート無しの包括的なカーネルセキュリティアップデートを利用したいのであれば、以下でそれを行う方法を説明します。
 
-KernelCareの価格およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: gdepsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 あなたがIPベースのライセンスを使用している場合、他に何もする必要はなく、既に準備ができている状態に設定されています。
 
@@ -29,8 +29,8 @@ $ /usr/bin/kcarectl --info
 $ /usr/bin/kcarectl --update
 ```
 
-:::注記
-_無償_ パッチが _デフォルト_ に変更されました。 それでもシンボリックリンク保護が必要な場合、 _追加の_ パッチを適用する必要があります。それらにはシンボリックリンク保護とCentOS 6およびCentOS 7のセキュリティ修正が含まれています（追加のパッチには追加の料金はかかりません）。
+::: tip 注記
+ _無償_ パッチが _デフォルト_ に変更されました。 それでもシンボリックリンク保護が必要な場合、 _追加の_ パッチを適用する必要があります。それらにはシンボリックリンク保護とCentOS 6およびCentOS 7のセキュリティ修正が含まれています（追加のパッチには追加の料金はかかりません）。
 ::: 
 
 追加のパッチを有効にしてパッチを適用するには、次のコマンドを実行します。:
@@ -100,6 +100,6 @@ sysctl -w fs.enforce_symlinksifowner=1
 
 詳細は [http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html](http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html) を参照ください。
 
-より多くの情報はこちらで見つけることができます。: [http://www.kernelcare.com/faq.php](http://www.kernelcare.com/faq.php).
+より多くの情報はこちらで見つけることができます。: [http://www.kernelcare.com/jp/faq.php](http://www.kernelcare.com/jp/faq.php).
 
 

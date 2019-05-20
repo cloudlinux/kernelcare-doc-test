@@ -61,7 +61,7 @@ KernelCareの導入をインストール/コントロールするために必要
 
 ### 費用
 
-KernelCareはサブスクリプションサービスとして提供されます。KernelCareの費用およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: gdepsales@gdep-sol.co.jp となります。
+KernelCareはサブスクリプションサービスとして提供されます。KernelCareの費用およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 ### サイジング
 
@@ -69,7 +69,7 @@ KernelCareエージェントは小さなRAMフットプリントを持ってお�
 
 ## 導入ガイダンス
 
-### 導入アセット
+### KernelCareの導入
 
 KernelCareをインストールするには、次のコマンドを実行します。:
 
@@ -150,24 +150,24 @@ KernelCare パッチサーバには標準（本番）フィードに加えてい
 * **テストフィード** – 完全なテストプロセスを経ていない最新のパッチ（テストビルド）。テストフィードを使用すると新しいパッチをより早くテストすることができます。
 * **遅延フィード** – 過去12、24、48時間以内にリリースされたパッチロードをスキップするようにKernelCareに指示します。
 
-代替フィードオプションは `/etc/sysconfig/kcare/kcare.conf` の `PREFIX` 変数を `test`/`12h`/`24h`/`48h` のいずれかに設定することで有効になります。
+フィードオプションは `/etc/sysconfig/kcare/kcare.conf` の `PREFIX` 変数を `test`/`12h`/`24h`/`48h` のいずれかに設定することで有効になります。
 
-#### **スティッキーパッチ機能によるフィード管理**
+#### **Stickyパッチ機能によるフィード管理**
 
-QAおよび本番環境を処理するための最適の方法はCloudLinux Network（CLN）ポータルから発行されたKernelCareライセンスキーのスティッキータグ機能を使用することです。 
+QAおよび本番環境を処理するための最適の方法はCloudLinux Network（CLN）ポータルから発行されたKernelCareライセンスキーのStickyタグ機能を使用することです。 
 このタグを使用するにはCLN ポータル → KernelCare タブ → 対象のKeyをクリック → Edit Key Info ウィンドウの順に進みます。
 
 ![](/images/KC-Ent-list.png)
 
 ![](/images/KC-Ent-edit.png)
 
-環境ごとに別々のキーを準備し、それらを特定のスティッキータグに設定する必要があります。これは実際には環境内のすべてのサーバにパッチを適用する必要がある日となります。
+環境ごとに別々のキーを準備し、それらを特定のStickyタグに設定する必要があります。これは実際には環境内のすべてのサーバにパッチを適用する必要がある日となります。
 
 ![](/images/KC-Ent-sticky.png)
 
-スティッキータグフィールドの日付は2018年5月28日から今日の1日前までの任意の日付にすることができます。
+Stickyタグフィールドの日付は2018年5月28日から今日の1日前までの任意の日付にすることができます。
 
-パッチを適用するサーバでスティッキータグ機能を使用するには、次のコマンドを実行します。:
+パッチを適用するサーバでStickyタグ機能を使用するには、次のコマンドを実行します。:
 
 ```
 $ /usr/bin/kcarectl --set-sticky-patch=KEY
@@ -175,17 +175,17 @@ $ /usr/bin/kcarectl --set-sticky-patch=KEY
 
 または `STICKY_PATCH=KEY` を `/etc/sysconfig/kcare/kcare.conf` ファイルに追加しても同じことができます。
   
-:::警告
- `KEY` ワードをサーバの登録に使用された実際のKernelCareライセンスキーに、**絶対に置き換えないでください。**
+::: tip 警告
+ `KEY` は単純にそのまま KEY と入力します。サーバの登録に使用された実際のKernelCareライセンスキーに、**絶対に置き換えないでください。**
 :::
 
-特定のサーバに対してスティッキータグ機能が有効になっていると、そのようなすべてのサーバはスティッキータグフィールドで指定された日付より前にのみリリースされるパッチを取得します。
+特定のサーバに対してStickyタグ機能が有効になっていると、そのようなすべてのサーバはStickyタグフィールドで指定された日付より前にのみリリースされるパッチを取得します。
 
 このようにしてCLNポータルの単一のフィールドのみをアップデートすることによって、ある環境内のすべてのサーバ（つまり同じKernelCareライセンスキーで登録したもの）に新しいパッチを追加できます。
 
 ## サポート
 
-私たちは24時間365日のサポートを無制限に提供しています。 [リクエストを送信](https://cloudlinux.zendesk.com/hc/requests/new) するか、もしくは [support@cloudlinux.com](mailto:support@cloudlinux.com) に電子メールでお問い合わせください。
+私たちは24時間365日のサポートを無制限に提供しています。英語で [リクエストを送信](https://cloudlinux.zendesk.com/hc/requests/new) するか、英語で [support@cloudlinux.com](mailto:support@cloudlinux.com) に電子メールでお問い合わせください。
 * 1営業日以内、ほとんどの場合2、3時間以内に、サポートに関するすべての質問に回答します。
 サポートをより促進するにはサーバ上で（ルートユーザとして）次のコマンドを実行します。:
 ```
@@ -193,24 +193,24 @@ $ /usr/bin/kcarectl --set-sticky-patch=KEY
 ```
 その後、生成されたキーをサポートリクエストに貼り付けます。
 
-KernelCareの価格およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: gdepsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 ### サポート費用
 
-KernelCareサブスクリプションには24時間365日の無料サポートが含まれています。
+KernelCareサブスクリプションにはe-mailまたはオンラインによるサポート費用が含まれています。
 
 ## アクセシビリティ
 
 ### 参考資料
 
-* KernelCare ウェブサイト: [https://www.kernelcare.com](https://www.kernelcare.com)
+* KernelCare ウェブサイト: [https://www.kernelcare.com/jp/](https://www.kernelcare.com)
 * KernelCare ブログ: [https://www.kernelcare.com/blog/](https://www.kernelcare.com/blog/)
 * KernelCare パッチサーバ: [http://patches.kernelcare.com](http://patches.kernelcare.com)
-* KernelCare のドキュメント: [http://docs.kernelcare.com/](http://docs.kernelcare.com/)
+* KernelCare のドキュメント: [http://docs.kernelcare.com/jp/](http://docs.kernelcare.com/)
 * CloudLinux Network – CLN (ポータル): [https://cln.cloudlinux.com](https://cln.cloudlinux.com)
 * CloudLinux 24時間365日オンラインサポートシステム: [https://cloudlinux.zendesk.com](https://cloudlinux.zendesk.com)
 
-KernelCareの価格およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: gdepsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
   
 ### ローカライゼーション
 

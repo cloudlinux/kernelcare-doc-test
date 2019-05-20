@@ -3,7 +3,7 @@
 
 このスクリプトはNexposeによって検出されたがKernelCareによってパッチされた脆弱性を例外としてマークします。
 
-:::注記
+::: tip 注記
 Nexposeを初めて使用する場合、設定方法と操作方法に関する [オフィシャルドキュメント](https://nexpose.help.rapid7.com/docs/) を読んでください。
 :::
 
@@ -53,13 +53,13 @@ $ cp /usr/local/etc/kcare-nexpose.yml.template /usr/local/etc/kcare-nexpose.yml
 $ vim /usr/local/etc/kcare-nexpose.yml
 ```
 
-:::注記
+::: tip 注記
 NexposeのIPアドレスとKernelCare ePortalのIPアドレスは同じである必要があります。 NexposeとKernelCare ePortalを別々のインスタンスで使用する場合はNexposeとKernelCare ePortalがローカルホスト（127.0.0.1）を使用していないことを確認してください。そうでなければkcare-nexposeはNexposeとKernelCare ePortalからのIPアドレスを分析するだけなので、脆弱性を誤ってマークする可能性があります。CLNライセンスサーバで使用されている場合、スクリプトはNATの背後にあるサーバとそれらのホスト名で照合することで機能します。
 :::
  
 ### サポートされているレポートタイプ
 
-:::警告
+::: warning 注記
 レポートを作成する前に [site](https://nexpose.help.rapid7.com/docs/what-is-a-site) と [scan](https://nexpose.help.rapid7.com/docs/selecting-a-scan-engine-for-a-site) を設定したことを確認してください。
 :::
 

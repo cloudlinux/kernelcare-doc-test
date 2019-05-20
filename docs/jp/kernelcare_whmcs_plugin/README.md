@@ -6,7 +6,7 @@
 
 WHMCSのCloudLinuxライセンスを使用すると、KernelCare、Imunify 360、CloudLinuxのライセンスとその製品を自動的に使用できるようになります。無料または有料のアドオンとして製品にプロビジョニングできます。CloudLinux Licensesアドオンのおかげでメイン製品のすべてのモジュールコマンドは自動的にライセンス製品に再現されます。
 
-KernelCareの価格およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: gdepsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 **アドミンエリアの機能**
 
@@ -125,11 +125,11 @@ php <whmcs_root>/clDeploy.php --migrate
 
 ライセンスと一緒にサーバを提供する場合、次の手順を実行してください。
 
-:::注記
+::: tip 注記
 ライセンスプロビジョニング製品の価格設定をしないでください。代わりにサーバプロビジョニング製品の価格を上げることができます。
 :::
 
-1. この文書の [Configuration of Product](/kernelcare_whmcs_plugin/#configuration-of-product) セクションの説明に従って、ライセンスプロビジョニング製品を準備します。
+1. この文書の [製品の設定](/jp/kernelcare_whmcs_plugin/#製品の設定) セクションの説明に従って、ライセンスプロビジョニング製品を準備します。
 2.  _Add-ons → CloudLinux Licenses Add-on → Products Relations_ の順に進み、 _Add Relation_　をクリックします。
 3.  _Main product_ ドロップダウンリストからサーバプロビジョニング製品を選択、 _Linked Product With License_ からライセンスプロビジョニング製品を選択し、 _Add Relation_ をクリックします。
 
@@ -144,13 +144,13 @@ php <whmcs_root>/clDeploy.php --migrate
 クライアントがライセンスの有無にかかわらずサーバを注文するかどうかを決定できるようにするために、Configurable Options ( [https://docs.whmcs.com/Addons_and_Configurable_Options](https://docs.whmcs.com/Addons_and_Configurable_Options)) を使用できます。
 以下にこのような接続を準備するための手順を示します。:
 
-1.  [ここ](/kernelcare_whmcs_plugin/#configuration-of-product) に記載されているようなCloudLinuxLicenses製品を設定します。
+1.  [ここ](/jp/kernelcare_whmcs_plugin/#製品の設定) に記載されているようなCloudLinuxLicenses製品を設定します。
 2.  _Setup → Products/Services → Configurable Options_ の順に選択して、 _Create a New Group_ をクリックします。
 3. グループ名を入力して、 _New Configurable Option_ を追加し、billing cycle、price、option typeを設定します。次に変更を保存します。
 4.  _Add-ons → CloudLinux Licenses Add-on → Configurable Options Relations_ に移動して、 _Add Relation_ をクリックします。
 5. 割り当てられている適切な構成可能オプションおよびライセンス製品を選択して、 _Add Relation_ をクリックします。
 
-:::注記
+::: tip 注記
 このプラグインは `quantity` タイプのConfigurable Optionsをサポートしていません。
 :::
 
@@ -162,7 +162,7 @@ php <whmcs_root>/clDeploy.php --migrate
 
 ### Add-onsを直接リンク
 
-:::注記
+::: tip 注記
 WHMCS 7.2.x以降で可能です。
 :::
 
@@ -302,7 +302,7 @@ IPアドレスまたはライセンスキーを変更するには、上記画面
 
 ### アドオンライセンス一覧
 
-:::tip Note
+::: tip 注記
 WHMCS 7.2.x以降で可能です。
 :::
 
@@ -321,7 +321,7 @@ add-on → _Licenses List_ でクライアントが所有している _Provision
 
 **解決策**: サーバのIPアドレスを変更してください。
 
-:::注記
+::: tip 注記
 現在、Imunify360にはキーベースのライセンスしかありません。 IPベースのライセンスのサポートは近日中に追加される予定です。
 :::
 

@@ -13,7 +13,7 @@
 |-|-|
 |`-i, --info` | KernelCareによってインストールされたパッチに関する情報を表示|
 |`-u, --update ` | 最新のパッチをダウンロードし、それらを現在のカーネルに適用|
-|`--smart-update  [ver1.6以降] ` | --update と同じですが、 [UPDATE_POLICY](/config_options/) を使用してパッチの入手先を決定|
+|`--smart-update  [ver1.6以降] ` | --update と同じですが、 [UPDATE_POLICY](/jp/config_options/) を使用してパッチの入手先を決定|
 |`--unload` | パッチのアンロード|
 |`--auto-update` | アップデートが必要かどうかをチェックし、アップデート|
 |`--patch-info` | 適用されているパッチの一覧を表示|
@@ -24,7 +24,7 @@
 |`--register-autoretry [ver2.5以降]` | 登録が失敗した場合、登録を永久に再試行|
 |`--unregister` | Keyベースのサーバ用のKernelCareから登録を解除|
 |`--test` | 運用サーバのビルドではなくテストビルドを試行 (非推奨、代わりに --prefix=test を使用)|
-|`--prefix` | パッチソースのプレフィックスで、プレフィックスベースで異なるロケーションからダウンロードすることによって、異なるビルドをテストするために使用|
+|`--prefix` | パッチソースのプレフィックスで、プレフィックス（ver2.2以降）ベースで異なるロケーションからダウンロードすることによって、異なるビルドをテストするために使用|
 |`--version` | KernelCareのバージョンを表示|
 |`--import-key PATH` | gpgキーをインポート|
 |`--set-monitoring-key` | 16から32文字の英数字のみでIPベースのライセンスに監視キー(monitoring key)を設定（ver2.1以降）|
@@ -33,8 +33,8 @@
 |`--doctor [ver2.6以降]` | 診断のためにCloudLinuxサポートスタッフにレポートを送付|
 |`--set-patch-type extra ` | 追加のパッチを有効化|
 |`--set-patch-type free` | 無料のパッチを有効化|
-|`--set-sticky-patch SET_STICKY_PATCH` | DDMMYY形式の日付時点で最新の状態にするようにパッチを設定。もしくはKEYに設定されている場合はKEYから取得(ePortalではサポートされていません)。何も記述しなければ、設定されません。より詳細な情報は [Sticky Patches](/sticky_patches/) を参照ください|
-|`--tag COMMAND` | サーバに追加のTagフィールドを追加。 COMMAND はユーザー定義のパラメーターです。より詳細な情報は [Managing Servers](/kernelcare_enterprise/#managing-servers) を参照ください|
+|`--set-sticky-patch SET_STICKY_PATCH` | DDMMYY形式の日付時点で最新の状態にするようにパッチを設定。もしくはKEYに設定されている場合はKEYから取得(ePortalではサポートされていません)。何も記述しなければ、設定されません。より詳細な情報は [Stickyパッチ](/jp/sticky_patches/) を参照ください|
+|`--tag COMMAND` | サーバに追加のTagフィールドを追加。 COMMAND はユーザー定義のパラメーターです。より詳細な情報は [サーバの管理](/jp/kernelcare_enterprise/#サーバの管理) を参照ください|
 
 ## kcare-uname
 

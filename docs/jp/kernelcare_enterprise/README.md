@@ -13,7 +13,7 @@ ePortalマシンのディスクサイズは接続されているサーバの数�
 * 200 GB 推奨
 * SSD
 
-:::注記
+::: tip 注記
 SSDは非常に重要な要件です。
 :::
 
@@ -125,7 +125,7 @@ chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 </div>
 
 
-ePortal をリスタートします。([停止とスタート](/kernelcare_enterprise/#stopping-starting) セクションを参照し、対応するOSを選択してください)。
+ePortal をリスタートします。([停止とスタート](/jp/kernelcare_enterprise/#停止とスタート) セクションを参照し、対応するOSを選択してください)。
 
 ## ユーザを管理する
 
@@ -153,19 +153,35 @@ $ kc.eportal -c admin -p NewPassword
 
 ### LDAP認証
 
+ePortalはLDAP認証を使って、安全な接続をサポートします。
 
- 
-安全な接続をサポートすることが可能です。これを行うにはユーザログインを入力するためのkeyとして正しい接続文字列の形式を指定します。
+ユーザログインの入力をするため、LDAP接続の文字列を指定します。
 
-例えば:
+例:
 
-`uid=%s,dc=example,dc=com`
+```
+uid=%s,dc=example,dc=com
+```
 
-:::注記
-このkeyは接続文字列では必須で、 `%s` を含める必要があります。
-:::
+ここでの 
 
-LDAP URLを使用してセキュリティ設定と設定タイムアウトを指定することもできます。
+`uid=%s` は、key属性であり `%s` を含める必要があります。
+
+LDAP URLを使用してセキュリティ設定とセットアップタイムアウトを指定することもできます。
+
+初めてLDAP資格情報でePortalにログインすると、デフォルトでLDAPユーザ名、読み取り専用権限、およびLDAPの説明を持つユーザがデータベースに作成されます(`http://<eportal>/admin/user/`)。
+
+下図では、 `kc.eportal` コマンドラインインターフェースで作成された一人のユーザと、LDAP認証情報でログインされた二人のユーザを見つけることができます。
+
+![](/images/eportalLDAPusers.png)
+
+このLDAPユーザ管理者権限を設定するには、 `read-only=False` と設定します。(編集アクセスが必要です)
+
+#### **ローカルユーザとLDAPユーザの間に、違いはありますか？**
+
+違いはログイン手順です。 ローカルユーザのログインとパスワードはローカルデータベースに保存されますが、LDAPユーザの場合は、ログインと許可のみがローカルデータベースに保存され、認証はLDAPサーバ経由で行われます。
+
+ユーザーがePortalにログインすると、ePortalは最初にローカルデータベースのユーザ認証情報を確認します。 認証情報が見つかった場合、ユーザは認証され、ユーザ認証情報が見つからない場合にのみ、ePortalはLDAPにリダイレクトします。
 
 
 ## ePortalにアクセス
@@ -177,12 +193,12 @@ KernelCare.eportalマネジメントコンソールにアクセスするには *
 
 ![](/images/access_eportal.png)
 
- [kc.eportal tool](/kernelcare_enterprise/#managing-users) を使ってあなたのログイン情報を管理することができます。
+ [kc.eportal tool](/jp/kernelcare_enterprise/#ユーザを管理する) を使ってあなたのログイン情報を管理することができます。
 
 ## パッチセットの展開
 
 
-:::注記
+::: tip 注記
 ePortal ver0.8以降
 :::
 
@@ -209,7 +225,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 
 * Keyを編集するには、 ![](/images/eportal_keys_edit.png) をクリックします。 _Edit_ タブが開きます。
 * Keyを削除するには、 ![](/images/eportal_keys_remove.png) をクリックします。 Keyを削除すると、そのKeyの下にあるすべてのサーバが削除されることに注意してください。
-* Keyをクリックして Servers タブに移動すると、そのKeyの下に [登録されているサーバ](/kernelcare_enterprise/#managing-servers) のリストが表示されます。そのタブでサーバを削除することもできます。
+* Keyをクリックして Servers タブに移動すると、そのKeyの下に [登録されているサーバ](/jp/kernelcare_enterprise/#サーバの管理) のリストが表示されます。そのタブでサーバを削除することもできます。
 
 新しい登録を作成するには _Create_ タブをクリックします。
    ![](/images/key-creation_zoom70.png) 
@@ -232,7 +248,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 ## サーバの管理
 
 
- [Managing Keys](/kernelcare_enterprise/#managing-keys) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
+ [Keyを管理する](/jp/kernelcare_enterprise/#Keyを管理する) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
 
 ![](/images/server_list_1_zoom70.png)
 
@@ -242,7 +258,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 ### スクリプトの管理
 
 
-:::注記
+::: tip 注記
 スクリプトがePortalで機能しない場合、最初にePortalをアップデートする必要があります。 ePortalをアップデートするには、次のコマンドを実行します。:
 
 ```
@@ -325,7 +341,7 @@ User 'user' is now readonly
 
 ![](/images/feed-button_zoom70.png)
 
-このページにおいてユーザは既存のフィードを管理することができます。: 作成、削除、編集
+このページにおいてユーザは既存のフィードを管理することができます。: create(作成)、delete(削除)、edit(編集)
 
 ![](/images/feed-menu_zoom70.png)
 
@@ -350,7 +366,7 @@ User 'user' is now readonly
 
 ![](/images/feedmanagement5_01_zoom70.png)
 
-:::注記
+::: tip 注記
 フィードを削除すると、このフィードに添付されているすべてのKeyがデフォルトのフィードに移動します。
 :::
 
@@ -484,6 +500,122 @@ REGISTRATION_URL=http://10.1.10.115/admin/api/kcare
 `REGISTRATION_URL` - サーバの登録/登録解除に使用されるURL
 
 
+## 展開の自動化
+
+Ansible/Puppet/Chef/Saltのような自動化ツールを使用して、多数のシステムにKernelCareをインストールして操作することが可能です。
+
+展開プロセスは次を含みます。:
+
+* KernelCareエージェントパッケージのダウンロード、配布、およびインストール
+* ePortal関連のエントリで `/etc/sysconfig/kcare/kcare.conf` のアップデート
+* アクティベーションキーを使用してKernelCareエージェントを登録
+
+### Ansible
+
+自動展開を始めるためには、下記の情報を特定する必要があります。:
+
+*  `eportal_srv` Ansible変数の中の ePortalサーバ名（もしくはIP）。 他の設定ファイルオプションは、 [設定オプション](/jp/config_options/) と [KernelCareクライアント設定ファイル](/jp/kernelcare_enterprise/#KernelCareクライアント設定ファイル) (ePortal)で見つけることができます。
+*  `activation_key` Ansible変数の中の アクティベーションkey。 アクティベーションkeyは、ePortalの中にある [Keyを管理する](/jp/kernelcare_enterprise/#Keyを管理する) (ePortal)で、生成することができます。
+
+展開フェーズ用のAnsible playbookは、下記の様になるはずです(RPMベースのディストリビューション)。:
+
+```
+- hosts: el7_based
+  vars:
+    eportal_srv: http://192.168.245.105
+    activation_key: jvQ5T0SVMt7736a9
+  tasks:
+  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
+    get_url:
+      url: https://repo.cloudlinux.com/kernelcare/kernelcare-latest-7.rpm
+      dest: /root/kernelcare-latest-7.rpm
+    delegate_to: 127.0.0.1
+    become: false
+
+  - name: Distribute the installation package
+    copy:
+      src: /root/kernelcare-latest-7.rpm
+      dest: /root/kernelcare-latest-7.rpm
+
+  - name: install the package from a local file
+    yum:
+      name: /root/kernelcare-latest-7.rpm
+      state: present
+
+  - name: Update kcare.conf with ePortal configuration
+    blockinfile:
+      path: /etc/sysconfig/kcare/kcare.conf
+      block: |
+        PATCH_SERVER={{ eportal_srv }}/
+        REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
+
+  - name: register KernelCare agents
+    command: /usr/bin/kcarectl --register {{ activation_key }}
+```
+
+Ubuntu/Debianを使用している場合、playbookは下記のようになります。:
+
+```
+- hosts: deb8_based
+  vars:
+    eportal_srv: http://192.168.245.105
+    activation_key: jvQ5T0SVMt7736a9
+  tasks:
+  - name: Copy an installation package, use the package that suits your target platform (see KernelCare install script for download links)
+    get_url:
+      url: https://repo.cloudlinux.com/kernelcare-debian/kernelcare-latest-8.deb
+      dest: /root/kernelcare-latest-8.deb
+    delegate_to: 127.0.0.1
+    become: false
+
+  - name: Distribute an installation package
+    copy:
+      src: /root/kernelcare-latest-8.deb
+      dest: /root/kernelcare-latest-8.deb
+
+  - name: install the package from a local file
+    apt:
+      deb: /root/kernelcare-latest-8.deb
+
+  - name: Update kcare.conf with ePortal configuration
+    blockinfile:
+      path: /etc/sysconfig/kcare/kcare.conf
+      block: |
+        PATCH_SERVER={{ eportal_srv }}/
+        REGISTRATION_URL={{ eportal_srv }}/admin/api/kcare
+
+  - name: register KernelCare agents
+    command: /usr/bin/kcarectl --register {{ activation_key }}
+```
+
+KernelCare agentをリムーブするためのAnsible playbookファイルの例:
+
+```
+- hosts: el7_based
+  tasks:
+    - name: unregister KernelCare agents
+      command: /usr/bin/kcarectl --unregister
+
+    - name: remove kernelcare package
+      yum:
+        name: kernelcare
+        state: absent
+```
+
+Ubuntu/Debianシステム向け:
+
+```
+- hosts: deb8_based
+  tasks:
+    - name: unregister KernelCare agents
+      command: /usr/bin/kcarectl --unregister
+
+    - name: remove kernelcare package
+      apt:
+        name: kernelcare
+        state: absent
+```
+
 ## ePortal IP の変更
 
 
@@ -566,43 +698,10 @@ nginx ePortal アクセスログ: `/var/log/nginx/kcare-eportal.log`
 nginx エラーログ: `/var/log/nginx/error_log`
 
 
-## ePortal API
-
-
-:::注記
-ver0.9以降
-:::
-
-KernelCare.ePortalはKeyとIPに基づいてサーバを削除するための限定されたAPIを提供します。
-
-APIにアクセスするには最初に認証に使用されるAPIトークンを設定します。:
-
-`echo your_token > /usr/share/kcare-eportal/config/api.token`
-
-APIメソッド: `unregister_by_key.plain`
-
-パラメーター:
-
-* key - サーバが登録されているKernelCare.ePortalのKey;
-* IP - KernelCare.ePortalに表示されるリモートサーバのIP;
-* token - APIトークン
-
-例:
-
-```
-https://ePortal_url/admin/api/kcare/unregister_by_key.plain?key=2M6gmIS6fHh39aF2&ip=10.1.10.74&token=your_token
-```
-
-リターンコード: int型
-* `-3` - APIトークンファイルが存在しません。;
-* `-2` - APIトークンが一致しません。;
-* `-1` - 内部エラー。詳細は `/var/log/uwsgi/uwsgi-emperor.log` を参照してください。;
-* その他の数 - 削除されたサーバの数。
-
 ## Nagios と Zabbixのサポート
 
 
-バージョン1.2以降のKernelCare.ePortalは [Nagios](/nagios_plugin/) および [Zabbix](/zabbix_template/) モニターと同様のサーバモニターをサポートしています。
+バージョン1.2以降のKernelCare.ePortalは [Nagios](/jp/nagios_plugin/) および [Zabbix](/jp/zabbix_template/) モニターと同様のサーバモニターをサポートしています。
 
 APIを直接カールして情報を受け取ることができます:
 
@@ -612,7 +711,7 @@ https://yourserver/admin/api/kcare/nagios/KCAREKEY
 
 または [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare) スクリプトを使用して、自分のサーバを指すように KEY_KCARE_NAGIOS_ENDPOINT を変更することもできます ( [https://cln.cloudlinux.com/clweb](https://cln.cloudlinux.com/clweb) （古いUIへのリンク）を変更、または [https://cln.cloudlinux.com/console/auth/login](https://cln.cloudlinux.com/console/auth/login) （新しいUIへのリンク）とともに [https://yourserver/admin](https://yourserver/admin) を変更)。
 
-:::注記
+::: tip 注記
  `PARTNER_LOGIN/TOKEN` を使用したアクセスはKernelCare.ePortalではサポートされていません。
 :::
 

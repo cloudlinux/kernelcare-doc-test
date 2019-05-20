@@ -57,7 +57,7 @@ curl -s -L https://kernelcare.com/checker | python
 wget -qq -O - https://kernelcare.com/checker | python
 ```
 
-より詳細については次のリンクよりご確認ください。: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
+より詳細については次のリンクよりご確認ください。: [https://www.kernelcare.com/jp/faq/](https://www.kernelcare.com/jp/faq/)
 
 ## Kspliceからの切り替え
 
@@ -90,7 +90,7 @@ $ bash ksplice2kcare IP
 
 またスクリプトを編集し、 `RETRY` と `SLEEP` の値を変更することによってそれを変更できます。
 
-スクリプトは終了コード `0` で終了し、成功すれば_Done_というメッセージが表示されます。それ以外の場合は終了コード `-1` が表示されます。
+スクリプトは終了コード `0` で終了し、成功すれば _Done_ というメッセージが表示されます。それ以外の場合は終了コード `-1` が表示されます。
 
 完全なログファイルは `/var/log/ksplice2kcare.log` に格納されています。
 
