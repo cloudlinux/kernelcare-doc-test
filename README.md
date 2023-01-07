@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/cloudlinux/kernelcare-doc.svg?style=svg)](https://circleci.com/gh/cloudlinux/kernelcare-doc)
-
 # Install dependencies
 
 ```
